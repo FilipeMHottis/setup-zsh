@@ -16,14 +16,23 @@ confirm_step() {
   [[ $resp == [sS] ]]
 }
 
+# Atualização do apt ignorando erros de repositórios inválidos
+echo "🔄 Atualizando pacotes (ignorar repositórios problemáticos)..."
+sudo apt-get update 2>&1 | grep -v "NO_PUBKEY\|Skipping acquire\|not signed" || true
+
 # 1. Zsh
 echo "📦 Instalando Zsh..."
-sudo apt-get update
 sudo apt-get install -y zsh
 
 # 2. Oh My Zsh
 if command -v curl >/dev/null 2>&1 || command -v wget >/dev/null 2>&1; then
   if confirm_step "Oh My Zsh"; then
+    echo ""
+    echo "ℹ️  OBSERVAÇÃO IMPORTANTE:"
+    echo "Durante a instalação do Oh My Zsh, o terminal pode mudar automaticamente para o Zsh."
+    echo "Se isso acontecer, você pode sair com Ctrl+D para voltar e continuar o setup normalmente."
+    echo ""
+
     if command -v curl >/dev/null 2>&1; then
       sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     else
