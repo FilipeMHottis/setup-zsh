@@ -24,6 +24,7 @@ Este é um script interativo para configurar o **Oh My Zsh** com tudo que eu gos
 - Sistema baseado em Debian/Ubuntu
 - `curl` ou `wget`
 - Acesso sudo
+- Git
 
 ---
 
