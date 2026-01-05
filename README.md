@@ -31,7 +31,7 @@ Este é um script interativo para configurar o **Oh My Zsh** com tudo que eu gos
 ## 🛠️ Como usar
 
 ```bash
-git@github.com:FilipeMHottis/setup-zsh.git
+git clone git@github.com:FilipeMHottis/setup-zsh.git
 cd setup-zsh
 chmod +x setup.sh
 ./setup.sh
